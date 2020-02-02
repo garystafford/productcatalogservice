@@ -24,8 +24,16 @@ go build
 # use old Gopkg.toml
 dep ensure
 dep ensure -update
+
 docker build -t garystafford/productcatalogservice:1.0.0 .
 docker build -t garystafford/productcatalogservice:1.0.0 . --no-cache
+
+docker run -d \
+    --publish 3550:3550 \
+    --env AWS_ACCESS_KEY_ID \
+    --env AWS_SECRET_ACCESS_KEY \
+    --env AWS_SESSION_TOKEN \
+    --name productcatalogservice garystafford/productcatalogservice:1.0.0
 ```
 
 ## Output
