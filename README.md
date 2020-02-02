@@ -1,12 +1,10 @@
 # Modify Google Microservice productcatalogservice to use DynamoDB
 
-_Work in Progress_
-
-See [`dynamodb-json-demo`](https://github.com/garystafford/dynamodb-json-demo) GitHub project for DynamoDB-related files. Build CloudFormation stack and run Python script to write products to DynamoDB.
+See [`dynamodb-json-demo`](https://github.com/garystafford/dynamodb-json-demo) GitHub project for DynamoDB-related files. Build the CloudFormation stack, then run the Python script to write products to DynamoDB from JSON file.
 
 ## Commands
 ```bash
-# set credentials
+# set credentials to run locally
 export AWS_REGION="us-east-1"
 export AWS_ACCESS_KEY_ID=""
 export AWS_SECRET_ACCESS_KEY=""
