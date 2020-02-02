@@ -25,6 +25,7 @@ go build
 dep ensure
 dep ensure -update
 docker build -t garystafford/productcatalogservice:1.0.0 .
+docker build -t garystafford/productcatalogservice:1.0.0 . --no-cache
 ```
 
 ## Output
