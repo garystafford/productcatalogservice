@@ -3,6 +3,7 @@
 See [`dynamodb-json-demo`](https://github.com/garystafford/dynamodb-json-demo) GitHub project for DynamoDB-related files. Build the CloudFormation stack, then run the Python script to write products to DynamoDB from JSON file.
 
 ## Commands
+### Build and Test
 ```bash
 # set credentials to run locally
 export AWS_REGION="us-east-1"
@@ -21,7 +22,10 @@ go build
 # test server.go
 # set creds
 go test -v
+```
 
+### Build and Run Docker Container
+```bash
 # build Dockerfile
 # use old Gopkg.toml
 dep ensure
