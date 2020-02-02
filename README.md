@@ -49,6 +49,34 @@ whether air plants need water? Buy one and figure out.\" picture:\"/static/img/p
 {"message":"starting grpc server at :3550","severity":"info","timestamp":"2020-02-01T22:46:26.138667-08:00"}
 ```
 
+## AWS Linux2 EC2 Test
+```bash
+yes | sudo yum update
+yes | sudo yum install git
+wget https://dl.google.com/go/go1.13.7.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.13.7.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+go version
+
+GOROOT=/usr/local/go
+GOPATH=/Users/ec2-user/go
+GOBIN=$GOPATH/bin
+
+wget https://github.com/garystafford/productcatalogservice/archive/master.zip
+unzip master.zip
+mkdir -p /home/ec2-user/go/src/github.com/garystafford/productcatalogservice
+mv /home/ec2-user/productcatalogservice-master/*.* /home/ec2-user/go/src/github.com/garystafford/productcatalogservice
+cd /home/ec2-user/go/src/github.com/garystafford/productcatalogservice
+
+go get ./...
+go build
+./productcatalogservice
+
+export AWS_REGION="us-east-1"
+./productcatalogservice
+
+```
+
 ## References
 - <https://github.com/GoogleCloudPlatform/microservices-demo>
 - <https://github.com/GoogleCloudPlatform/microservices-demo/blob/master/src/productcatalogservice/products.json>

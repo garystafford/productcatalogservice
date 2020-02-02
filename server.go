@@ -112,7 +112,11 @@ func readCatalogDynamo(catalog *pb.ListProductsResponse) error {
 	}))
 
 	// Create DynamoDB client
-	svc := dynamodb.New(sess)
+	//svc := dynamodb.New(sess)
+
+	svc := dynamodb.New(sess, &aws.Config{
+		Region: aws.String("us-east-1"),
+	})
 
 	tableName := "Products"
 
