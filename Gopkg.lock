@@ -2,30 +2,35 @@
 
 
 [[projects]]
-  digest = "1:1ec5218e4c36bd026bcc8d6d1dfc7191d3c47646de11fcea0e67fca6eb9a4c8f"
+  digest = "1:cd61c288406d5d80572967f908a23a1f0ffbf460e926269672e955f4a88b79bc"
   name = "cloud.google.com/go"
   packages = [
     "compute/metadata",
-    "container/apiv1",
     "internal/version",
     "monitoring/apiv3",
     "profiler",
     "trace/apiv2",
   ]
   pruneopts = "UT"
-  revision = "6daa679260d92196ffca2362d652c924fdcb7a22"
-  version = "v0.52.0"
+  revision = "457ea5c15ccf3b87db582c450e80101989da35f7"
+  version = "v0.40.0"
 
 [[projects]]
-  digest = "1:c0601c51afd4e013aefb40783e0238f655a8f788dd9f6b2e0bf23208bb4a17a2"
+  digest = "1:4b96dcd8534bc6450a922bd16a76360ba3381f0d1daf40abbaec91c053fbfeb5"
   name = "contrib.go.opencensus.io/exporter/stackdriver"
-  packages = [
-    ".",
-    "monitoredresource",
-  ]
+  packages = ["."]
   pruneopts = "UT"
-  revision = "0e2df90c35d1575910dc0a44da7d7b08ae76290f"
-  version = "v0.9.1"
+  revision = "37aa2801fbf0205003e15636096ebf0373510288"
+  version = "v0.5.0"
+
+[[projects]]
+  branch = "master"
+  digest = "1:1711875a147ff5b61b5fbe8ed57555b8c502d0e507e262757a4723001356f7c4"
+  name = "git.apache.org/thrift.git"
+  packages = ["lib/go/thrift"]
+  pruneopts = "UT"
+  revision = "f8b004081da0c5006c3a0ce0352b66d2d857405e"
+  source = "github.com/apache/thrift"
 
 [[projects]]
   digest = "1:9370265bab17bdc207051ccedc34535484a12622a329839e580059c79236c1e3"
@@ -34,14 +39,6 @@
   pruneopts = "UT"
   revision = "326e058e102a911ca5613f062ed2e23a1258e802"
   version = "v0.1.3"
-
-[[projects]]
-  digest = "1:2505ada8a497ded339532cfaae30c15365f4e82245a3dbaff7a8453c086b0667"
-  name = "github.com/apache/thrift"
-  packages = ["lib/go/thrift"]
-  pruneopts = "UT"
-  revision = "cecee50308fc7e6f77f55b3fd906c1c6c471fa2f"
-  version = "v0.13.0"
 
 [[projects]]
   digest = "1:b264349082ba5d51df2c7db13e1d323d91cd57378e778fdf3de542e2b9e5446e"
@@ -90,18 +87,6 @@
   version = "v1.28.9"
 
 [[projects]]
-  digest = "1:e7d26760c4e7d67a443b082153c4b473ad0b8f7388302a2f788b1360f751abb8"
-  name = "github.com/census-instrumentation/opencensus-proto"
-  packages = [
-    "gen-go/agent/common/v1",
-    "gen-go/metrics/v1",
-    "gen-go/resource/v1",
-  ]
-  pruneopts = "UT"
-  revision = "d89fa54de508111353cb0b06403c00569be780d8"
-  version = "v0.2.1"
-
-[[projects]]
   digest = "1:7999a7e0101d082ce683a70b47e83c6bd1c2d13f2cb528158e60761da23166ee"
   name = "github.com/golang/protobuf"
   packages = [
@@ -121,19 +106,17 @@
   version = "v1.3.3"
 
 [[projects]]
-  digest = "1:f0ae868d945753df81e797524bb7f3c577bcf751ce515c18162d259ca3ff8de7"
+  digest = "1:2e3c336fc7fde5c984d2841455a658a6d626450b1754a854b3b32e7a8f49a07a"
   name = "github.com/google/go-cmp"
   packages = [
     "cmp",
-    "cmp/cmpopts",
     "cmp/internal/diff",
-    "cmp/internal/flags",
     "cmp/internal/function",
     "cmp/internal/value",
   ]
   pruneopts = "UT"
-  revision = "5a6f75716e1203a923a78c9efb94089d857df0f6"
-  version = "v0.4.0"
+  revision = "3af367b6b30c263d47e8895973edcca9a49cf029"
+  version = "v0.2.0"
 
 [[projects]]
   branch = "master"
@@ -150,14 +133,6 @@
   pruneopts = "UT"
   revision = "bd5b16380fd03dc758d11cef74ba2e3bc8b0e8c2"
   version = "v2.0.5"
-
-[[projects]]
-  digest = "1:7fae9ec96d10b2afce0da23c378c8b3389319b7f92fa092f2621bba3078cfb4b"
-  name = "github.com/hashicorp/golang-lru"
-  packages = ["simplelru"]
-  pruneopts = "UT"
-  revision = "14eae340515388ca95aa8e7b86f0de668e981f54"
-  version = "v0.5.4"
 
 [[projects]]
   digest = "1:bb81097a5b62634f3e9fec1014657855610c82d19b9a40c17612e32651e35dca"
@@ -183,7 +158,7 @@
   version = "v1.4.2"
 
 [[projects]]
-  digest = "1:3744497fce7fbc5d9226b268e7b784733b83f1b2edb6a25aa5670933b7c87adc"
+  digest = "1:a5154dfd6b37bef5a3eab759e13296348e639dc8c7604f538368167782b08ccd"
   name = "go.opencensus.io"
   packages = [
     ".",
@@ -191,13 +166,9 @@
     "exporter/jaeger/internal/gen-go/jaeger",
     "internal",
     "internal/tagencoding",
-    "metric/metricdata",
-    "metric/metricexport",
-    "metric/metricproducer",
     "plugin/ocgrpc",
     "plugin/ochttp",
     "plugin/ochttp/propagation/b3",
-    "resource",
     "stats",
     "stats/internal",
     "stats/view",
@@ -208,8 +179,8 @@
     "trace/tracestate",
   ]
   pruneopts = "UT"
-  revision = "75c0cca22312e51bfd4fafdbe9197ae399e18b38"
-  version = "v0.20.2"
+  revision = "b11f239c032624b045c4c2bfd3d1287b4012ce89"
+  version = "v0.16.0"
 
 [[projects]]
   branch = "master"
@@ -285,17 +256,6 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:918a46e4a2fb83df33f668f5a6bd51b2996775d073fce1800d3ec01b0a5ddd2b"
-  name = "golang.org/x/xerrors"
-  packages = [
-    ".",
-    "internal",
-  ]
-  pruneopts = "UT"
-  revision = "9bdfabe68543c54f90421aeb9a60ef8061b5b544"
-
-[[projects]]
-  branch = "master"
   digest = "1:897beaa5fb45e9034c320b1271a51ecbb77af463b489bda295835afd3cf19a6e"
   name = "google.golang.org/api"
   packages = [
@@ -335,7 +295,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:5866330c25204f0814c3c5fa9b6a5c93f2d3e7bdba0d888cc19da2d91a3b863b"
+  digest = "1:0a0280f4b12027f76985c3eb7dd8a7b62efc7e88744a1ed49a91ef8af14518ad"
   name = "google.golang.org/genproto"
   packages = [
     "googleapis/api",
@@ -344,7 +304,6 @@
     "googleapis/api/label",
     "googleapis/api/metric",
     "googleapis/api/monitoredres",
-    "googleapis/container/v1",
     "googleapis/devtools/cloudprofiler/v2",
     "googleapis/devtools/cloudtrace/v2",
     "googleapis/monitoring/v3",

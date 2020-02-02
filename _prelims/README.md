@@ -21,7 +21,9 @@ go build
 ./productcatalogservice
 
 # build Dockerfile
+# use old Gopkg.toml
 dep ensure
+dep ensure -update
 docker build -t garystafford/productcatalogservice:1.0.0 .
 ```
 
