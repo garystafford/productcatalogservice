@@ -81,6 +81,7 @@ func run(port string) string {
 	return l.Addr().String()
 }
 
+// Original function that reads products from JSON file
 func readCatalogFile(catalog *pb.ListProductsResponse) error {
 	catalogMutex.Lock()
 	defer catalogMutex.Unlock()
@@ -98,6 +99,7 @@ func readCatalogFile(catalog *pb.ListProductsResponse) error {
 	return nil
 }
 
+// New function that reads products from DynamoDB
 func readCatalogDynamo(catalog *pb.ListProductsResponse) error {
 	catalogMutex.Lock()
 	defer catalogMutex.Unlock()
@@ -116,14 +118,14 @@ func readCatalogDynamo(catalog *pb.ListProductsResponse) error {
 
 	// Build the query input parameters
 	params := &dynamodb.ScanInput{
-		TableName:	aws.String(tableName),
+		TableName: aws.String(tableName),
 	}
 
-	// Make the DynamoDB Query API call - scan (get all rows)
+	// Make the DynamoDB Query API call - Scan (get all rows)
 	result, err := svc.Scan(params)
 	if err != nil {
 		fmt.Println("Query API call failed:")
-		fmt.Println((err.Error()))
+		fmt.Println(err.Error())
 		os.Exit(1)
 	}
 
