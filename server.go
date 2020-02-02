@@ -53,11 +53,6 @@ func init() {
 	}
 	log.Out = os.Stdout
 	catalogMutex = &sync.Mutex{}
-	//err := readCatalogFile(&cat)
-	//if err != nil {
-	//	log.Warnf("could not parse product catalog")
-	//}
-	//log.Infof("Contents of the Product Catalog: :%s", cat)
 
 	err := readCatalogDynamo(&cat)
 	if err != nil {
@@ -114,11 +109,6 @@ func readCatalogDynamo(catalog *pb.ListProductsResponse) error {
 		SharedConfigState: session.SharedConfigEnable,
 	}))
 
-	//sess, err := session.NewSession(&aws.Config{
-	//	Region: aws.String("us-east-1")},
-	//)
-
-
 	// Create DynamoDB client
 	svc := dynamodb.New(sess)
 
@@ -129,7 +119,7 @@ func readCatalogDynamo(catalog *pb.ListProductsResponse) error {
 		TableName:	aws.String(tableName),
 	}
 
-	// Make the DynamoDB Query API call
+	// Make the DynamoDB Query API call - scan (get all rows)
 	result, err := svc.Scan(params)
 	if err != nil {
 		fmt.Println("Query API call failed:")
