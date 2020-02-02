@@ -1,6 +1,6 @@
 # Modify Google Microservice to use DynamoDB
 
-##_Work in Progress_
+_Work in Progress_
 
 See [`dynamodb-json-demo`](https://github.com/garystafford/dynamodb-json-demo) GitHub project for DynamoDB-related files.
 
