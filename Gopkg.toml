@@ -27,35 +27,27 @@
 
 [[constraint]]
   name = "cloud.google.com/go"
-  version = "0.52.0"
+  version = "0.40.0"
 
 [[constraint]]
   name = "contrib.go.opencensus.io/exporter/stackdriver"
-  version = "0.9.1"
-
-[[constraint]]
-  name = "github.com/GoogleCloudPlatform/microservices-demo"
-  version = "0.1.3"
-
-[[constraint]]
-  name = "github.com/aws/aws-sdk-go"
-  version = "1.28.9"
+  version = "0.5.0"
 
 [[constraint]]
   name = "github.com/golang/protobuf"
-  version = "1.3.3"
+  version = "1.2.0"
 
 [[constraint]]
   name = "github.com/google/go-cmp"
-  version = "0.4.0"
+  version = "0.2.0"
 
 [[constraint]]
   name = "github.com/sirupsen/logrus"
-  version = "1.4.2"
+  version = "1.0.6"
 
 [[constraint]]
   name = "go.opencensus.io"
-  version = "0.20.2"
+  version = "0.16.0"
 
 [[constraint]]
   branch = "master"
@@ -63,7 +55,7 @@
 
 [[constraint]]
   name = "google.golang.org/grpc"
-  version = "1.27.0"
+  version = "1.17.0"
 
 [prune]
   go-tests = true

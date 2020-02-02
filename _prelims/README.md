@@ -21,6 +21,7 @@ go build
 ./productcatalogservice
 
 # build Dockerfile
+dep ensure
 docker build -t garystafford/productcatalogservice:1.0.0 .
 ```
 
