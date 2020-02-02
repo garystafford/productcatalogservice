@@ -77,7 +77,7 @@ func init() {
 		log.Warnf("could not parse product catalog")
 	}
 
-	log.Infof("Contents of the Product Catalog: :%s", cat)
+	//log.Infof("Contents of the Product Catalog: :%s", cat)
 }
 
 func main() {

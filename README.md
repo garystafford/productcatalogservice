@@ -20,6 +20,10 @@ GOPATH=/Users/garystaf/Documents/projects/go
 go build
 ./productcatalogservice
 
+# test server.go
+# set creds
+go test -v
+
 # build Dockerfile
 # use old Gopkg.toml
 dep ensure
