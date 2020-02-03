@@ -2,7 +2,7 @@
 Modified Google Microservice `productcatalogservice` to use DynamoDB instead of JSON file for Product Catalog contents. See [`dynamodb-json-demo`](https://github.com/garystafford/dynamodb-json-demo) GitHub project for DynamoDB-related files. Build the CloudFormation stack, then run the Python script to write products to DynamoDB from JSON file.
 
 ## Commands
-### Build and Test
+### Build and Test Locally
 ```bash
 # set credentials to run locally (needs access to DynamoDB)
 export AWS_REGION="us-east-1"
@@ -23,7 +23,7 @@ go build
 go test -v
 ```
 
-### Build and Run Docker Container
+### Build and Run Docker Container Locally
 
 Service uses `dep`. Dep is a tool for managing dependencies for Go projects. You will need `dep` to update AWS dependencies.
 
