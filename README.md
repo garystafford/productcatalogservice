@@ -1,10 +1,10 @@
-# productcatalogservice using DynamoDB
-Modified Google Microservice `productcatalogservice` to use DynamoDB. See [`dynamodb-json-demo`](https://github.com/garystafford/dynamodb-json-demo) GitHub project for DynamoDB-related files. Build the CloudFormation stack, then run the Python script to write products to DynamoDB from JSON file.
+# Google's productcatalogservice Service using DynamoDB
+Modified Google Microservice `productcatalogservice` to use DynamoDB instead of JSON file for Product Catalog contents. See [`dynamodb-json-demo`](https://github.com/garystafford/dynamodb-json-demo) GitHub project for DynamoDB-related files. Build the CloudFormation stack, then run the Python script to write products to DynamoDB from JSON file.
 
 ## Commands
 ### Build and Test
 ```bash
-# set credentials to run locally
+# set credentials to run locally (needs access to DynamoDB)
 export AWS_REGION="us-east-1"
 export AWS_ACCESS_KEY_ID=""
 export AWS_SECRET_ACCESS_KEY=""
@@ -46,11 +46,15 @@ docker run -d \
     --env AWS_SECRET_ACCESS_KEY \
     --env AWS_SESSION_TOKEN \
     --name productcatalogservice garystafford/productcatalogservice:1.0.0
+
+# push to dockerhub
+docker login
+docker push garystafford/productcatalogservice:1.0.0
 ```
 
 ## Output
 ```text
-{"message":"Contents of the Product Catalog: :{[id:\"OLJCESPC7Z\" name:\"Vintage Typewriter\" description:\"This 
+{"message":"product catalog:{[id:\"OLJCESPC7Z\" name:\"Vintage Typewriter\" description:\"This 
 typewriter looks good in your living room.\" picture:\"/static/img/products/typewriter.jpg\" price_usd:
 \u003ccurrency_code:\"USD\" units:67 nanos:990000000 \u003e categories:\"vintage\"  id:\"66VCHSJNUP\" name:
 \"Vintage Camera Lens\" description:\"You won't have a camera to use it and it probably doesn't work anyway.

@@ -2,3 +2,5 @@ vendor/
 .gitignore
 README.md
 _prelims
+productcatalogservice
+server_test.go
