@@ -1,6 +1,5 @@
-# Modify Google Microservice productcatalogservice to use DynamoDB
-
-See [`dynamodb-json-demo`](https://github.com/garystafford/dynamodb-json-demo) GitHub project for DynamoDB-related files. Build the CloudFormation stack, then run the Python script to write products to DynamoDB from JSON file.
+# productcatalogservice using DynamoDB
+Modified Google Microservice `productcatalogservice` to use DynamoDB. See [`dynamodb-json-demo`](https://github.com/garystafford/dynamodb-json-demo) GitHub project for DynamoDB-related files. Build the CloudFormation stack, then run the Python script to write products to DynamoDB from JSON file.
 
 ## Commands
 ### Build and Test
@@ -20,22 +19,29 @@ go build
 ./productcatalogservice
 
 # test server.go
-# set creds
+# creds must be set
 go test -v
 ```
 
 ### Build and Run Docker Container
-```bash
-# build Dockerfile
-# use old Gopkg.toml
-dep ensure
-dep ensure -update
 
+Service uses `dep`. Dep is a tool for managing dependencies for Go projects. You will need `dep` to update AWS dependencies.
+
+```bash
+# update dependencies
+# use original Gopkg.toml
+# dep ensure
+# dep ensure -update
+dep ensure --vendor-only
+
+# build image from dockerfile
 docker build -t garystafford/productcatalogservice:1.0.0 . --no-cache
 
-# run the image
+# create a container based on image
+# creds only required for local testing (not on ECS/EKS)
 docker run -d \
     --publish 3550:3550 \
+    --env AWS_REGION \
     --env AWS_ACCESS_KEY_ID \
     --env AWS_SECRET_ACCESS_KEY \
     --env AWS_SESSION_TOKEN \

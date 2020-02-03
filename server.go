@@ -77,7 +77,7 @@ func init() {
 		log.Warnf("could not parse product catalog")
 	}
 
-	//log.Infof("Contents of the Product Catalog: :%s", cat)
+	log.Infof("product catalog: %v", cat)
 }
 
 func main() {
@@ -247,11 +247,11 @@ func readCatalogDynamo(catalog *pb.ListProductsResponse) error {
 	}))
 
 	// Create DynamoDB client
-	//svc := dynamodb.New(sess)
+	svc := dynamodb.New(sess)
 
-	svc := dynamodb.New(sess, &aws.Config{
-		Region: aws.String("us-east-1"),
-	})
+	//svc := dynamodb.New(sess, &aws.Config{
+	//	Region: aws.String("us-east-1"),
+	//})
 
 	tableName := "Products"
 

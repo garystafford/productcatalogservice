@@ -4,7 +4,7 @@ RUN apk add --no-cache ca-certificates git && \
       chmod +x /go/bin/dep
 
 ENV PROJECT github.com/garystafford/productcatalogservice
-ENV AWS_REGION us-east-1
+# ENV AWS_REGION us-east-1
 
 WORKDIR /go/src/$PROJECT
 
