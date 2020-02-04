@@ -81,6 +81,7 @@ whether air plants need water? Buy one and figure out.\" picture:\"/static/img/p
 ```
 
 ## AWS Linux2 EC2 Test
+
 ```bash
 # ssh to EC2 host
 yes | sudo yum update
