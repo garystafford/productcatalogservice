@@ -281,13 +281,13 @@ func readCatalogDynamo(catalog *pb.ListProductsResponse) error {
 		}
 	}
 
-	//log.Info(catalog.Products)
+	log.Info("Catalog successfully loaded from DynamoDB!")
 
 	return err
 }
 
-func parseCatalog() []*pb.Product {
-	if reloadCatalog || len(cat.Products) == 0 {
+func parseCatalog(params ...bool) []*pb.Product {
+	if reloadCatalog || len(cat.Products) == 0 || (len(params) > 0 && params[0] == true) {
 		err := readCatalogDynamo(&cat)
 		if err != nil {
 			return []*pb.Product{}
@@ -306,7 +306,7 @@ func (p *productCatalog) Watch(req *healthpb.HealthCheckRequest, ws healthpb.Hea
 
 func (p *productCatalog) ListProducts(context.Context, *pb.Empty) (*pb.ListProductsResponse, error) {
 	time.Sleep(extraLatency)
-	return &pb.ListProductsResponse{Products: parseCatalog()}, nil
+	return &pb.ListProductsResponse{Products: parseCatalog(true)}, nil
 }
 
 func (p *productCatalog) GetProduct(ctx context.Context, req *pb.GetProductRequest) (*pb.Product, error) {

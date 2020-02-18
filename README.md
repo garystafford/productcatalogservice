@@ -35,7 +35,7 @@ Service uses `dep`. Dep is a tool for managing dependencies for Go projects. You
 dep ensure --vendor-only
 
 # build image from dockerfile
-docker build -t garystafford/productcatalogservice:1.0.0 . --no-cache
+docker build -t garystafford/productcatalogservice:2.0.0 . --no-cache
 
 # create a container based on image
 # creds only required for local testing (not on ECS/EKS)
@@ -49,7 +49,7 @@ docker run -d \
 
 # push to dockerhub
 docker login
-docker push garystafford/productcatalogservice:1.0.0
+docker push garystafford/productcatalogservice:2.0.0
 ```
 
 ## Output
